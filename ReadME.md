@@ -17,6 +17,12 @@ This is a express server that empowered with hot-reload feature to detect file c
     npm start
     ```
 
+4. Run the server by feeding customized folder path
+
+    ```bash
+    npm start -- --schemaDir [Your-Folder-Path]
+    ```
+
 ## How it works?
 
 1. Put your .graphql files in `schema` folder

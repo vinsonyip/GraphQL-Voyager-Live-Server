@@ -13,8 +13,13 @@ const port = 13000;
 let currentSchema = null;
 let schemaVersion = 0;
 
+// Get schema path from command line arguments
+const schemaDir = process.argv.includes('--schemaDir') 
+  ? process.argv[process.argv.indexOf('--schemaDir') + 1]
+  : path.join(__dirname, 'schema');
+
+// Modified loadSchemaFiles
 const loadSchemaFiles = () => {
-  const schemaDir = path.join(__dirname, 'schema');
   return fs.readdirSync(schemaDir)
     .filter(file => file.endsWith('.graphql'))
     .map(file => fs.readFileSync(path.join(schemaDir, file), 'utf8'))
@@ -40,7 +45,7 @@ const updateSchema = () => {
 };
 
 // 2. File watcher setup
-const watcher = chokidar.watch('./schema/**/*.graphql', {
+const watcher = chokidar.watch(path.join(schemaDir, '**/*.graphql'), {
   ignored: /(^|[\/\\])\../,
   persistent: true,
   ignoreInitial: true
