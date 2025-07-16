@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GraphQL Voyager</title>
+  <script src="https://cdn.jsdelivr.net/npm/graphql-voyager/dist/voyager.standalone.js"></script>
+  <style>
+    #voyager { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="voyager"></div>
+  <script>
+    GraphQLVoyager.init(document.getElementById('voyager'), {
+      introspection: () => fetch('/graphql', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          query: GraphQLVoyager.introspectionQuery
+        })
+      }).then(response => response.json())
+    });
+  </script>
+</body>
+</html>

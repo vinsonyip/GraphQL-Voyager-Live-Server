@@ -1,0 +1,6 @@
+type Users2 {
+  id: ID!
+  username: String!
+  age: String!
+  education_id: [Educations]  # Resolver needed
+}

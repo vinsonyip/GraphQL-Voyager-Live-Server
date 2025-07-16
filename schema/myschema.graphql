@@ -1,0 +1,13 @@
+type Query {
+  dummy: String  # Placeholder field
+  # OR actual queries:
+  users: [Users!]!
+  educations: [Educations!]!
+  users2: [Users2!]!
+}
+
+
+type Educations {
+  id: ID!
+  school_name: String!
+}

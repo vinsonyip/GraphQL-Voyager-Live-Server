@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+
+# Production
+build/
+dist/
+public/build/
+public/dist/
+
+# Editor/IDE specific
+.vscode/
+.idea/
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Environment variables
+.env
+.env.*.local
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+
+# Misc
+.cache/
+.nyc_output/
